@@ -31,7 +31,7 @@ def handle_message(event):
     model = genai.GenerativeModel('gemini-pro')
     #response = model.generate_content(event.message.text)
     #message = TextSendMessage(text=response)
-    print(type(event.message.txt))
+    print(type(event.message.text))
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
 
