@@ -29,8 +29,10 @@ def callback():
 def handle_message(event):
     genai.configure(api_key=os.environ['Gemini_API_KEY'])
     model = genai.GenerativeModel('gemini-pro')
-    response = model.generate_content(event.message.text)
-    message = TextSendMessage(text=response)
+    #response = model.generate_content(event.message.text)
+    #message = TextSendMessage(text=response)
+    print(type(event.message.txt))
+    message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
